@@ -22,6 +22,7 @@ from app.ai.routes import router as ai_router
 from app.consultation.routes import router as consultation_router
 from app.pharmacy.routes import router as pharmacy_router
 from app.iot.routes import router as iot_router
+from app.settings.routes import router as settings_router
 
 # Configure logging
 logging.basicConfig(
@@ -129,6 +130,7 @@ app.include_router(ai_router, prefix="/api/ai", tags=["AI Services"])
 app.include_router(consultation_router, prefix="/api/consultations", tags=["Consultations"])
 app.include_router(pharmacy_router, prefix="/api/pharmacy", tags=["Pharmacy"])
 app.include_router(iot_router, prefix="/api/iot", tags=["IoT"])
+app.include_router(settings_router, prefix="/api/settings", tags=["Settings"])
 
 
 if __name__ == "__main__":
