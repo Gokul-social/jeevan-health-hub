@@ -1,0 +1,38 @@
+# Jeevan+ Telemedicine Backend - Production Dependencies
+
+# FastAPI and ASGI Server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+cryptography==41.0.7
+
+# Firebase / Firestore
+google-cloud-firestore==2.13.1
+google-cloud-storage==2.14.0
+firebase-admin==6.4.0
+
+# HTTP Client (for AI services)
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Environment & Configuration
+python-dotenv==1.0.0
+
+# Logging & Monitoring
+python-json-logger==2.0.7
+
+# Testing (optional)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# Development Tools (optional)
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+

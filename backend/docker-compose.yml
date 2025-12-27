@@ -1,0 +1,37 @@
+# Docker Compose for local development
+# Includes Firestore emulator and backend service
+
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: jeevan-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - ENVIRONMENT=development
+      - FIREBASE_PROJECT_ID=jeevan-dev
+      - FIREBASE_EMULATOR_HOST=firestore:8080
+      - PORT=8080
+    volumes:
+      - ./app:/app/app
+      - ./logs:/app/logs
+    depends_on:
+      - firestore
+    networks:
+      - jeevan-network
+
+  firestore:
+    image: gcr.io/google.com/cloudsdktool/cloud-sdk:emulators
+    container_name: jeevan-firestore-emulator
+    ports:
+      - "8080:8080"
+    command: gcloud beta emulators firestore start --host-port=0.0.0.0:8080
+    networks:
+      - jeevan-network
+
+networks:
+  jeevan-network:
+    driver: bridge
+

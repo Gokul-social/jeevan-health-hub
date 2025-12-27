@@ -1,0 +1,4 @@
+"""
+Pharmacy module.
+"""
+
